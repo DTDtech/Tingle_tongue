@@ -13,10 +13,11 @@ const TasteForm = () => {
 
     return (
         <div className="w-full">
-            <div className="flex flex-col lg:gap-y-6 font-mono">
-                <div className="flex sm:max-lg:flex-col lg:flex-row items-center sm:max-lg:mb-5 sm:max-lg:gap-y-5 lg:gap-x-3">
+            <div className="flex flex-col font-mono">
+                {/* <div className="flex sm:max-lg:flex-col lg:flex-row items-center sm:max-lg:mb-5 sm:max-lg:gap-y-5 lg:gap-x-3"> */}
+                <div className="flex flex-col lg:flex-row lg:justify-center items-center mb-5 gap-y-5 lg:gap-y-5 lg:gap-x-3">
                     <button type="button" id="garlicky" name="signature" value="garlicky"
-                        className="btn w-3/4 lg:w-4/12 h-28 text-lg" onClick={handleClick}>
+                        className="btn w-3/4 lg:w-72 h-28 text-lg" onClick={handleClick}>
                         <span className="w-full flex justify-center items-center">
                             <Image
                                 src="/garlicky.svg"
@@ -30,7 +31,7 @@ const TasteForm = () => {
                         </span>
                     </button>
                     <button type="button" id="spicy" name="signature" value="spicy"
-                        className="btn w-3/4 lg:w-4/12 h-28 text-lg" onClick={handleClick}>
+                        className="btn w-3/4 lg:w-72 h-28 text-lg" onClick={handleClick}>
                         <span className="w-full flex justify-center items-center">
                             <Image
                                 src="/spicy.svg"
@@ -44,7 +45,7 @@ const TasteForm = () => {
                         </span>
                     </button>
                     <button type="button" id="crunchy" name="signature" value="crunchy"
-                        className="btn w-3/4 lg:w-4/12 h-28 text-lg" onClick={handleClick}>
+                        className="btn w-3/4 lg:w-72 h-28 text-lg" onClick={handleClick}>
                         <span className="w-full flex justify-center items-center">
 
                             <Image
@@ -60,9 +61,9 @@ const TasteForm = () => {
                     </button>
                 </div>
 
-                <div className="flex sm:max-lg:flex-col lg:flex-row items-center sm:max-lg:mb-5 sm:max-lg:gap-y-5 lg:gap-x-3">
+                <div className="flex flex-col lg:flex-row lg:justify-center items-center mb-5 gap-y-5 lg:gap-x-3">
                     <button type="button" id="sweet" name="signature" value="sweet"
-                        className="btn w-3/4 lg:w-4/12 h-28 text-lg" onClick={handleClick}>
+                        className="btn w-3/4 lg:w-72 h-28 text-lg" onClick={handleClick}>
                         <span className="w-full flex justify-center items-center">
 
                             <Image
@@ -77,7 +78,7 @@ const TasteForm = () => {
                         </span>
                     </button>
                     <button type="button" id="comforting" name="signature" value="comforting"
-                        className="btn w-3/4 lg:w-4/12 h-28 text-lg" onClick={handleClick}>
+                        className="btn w-3/4 lg:w-72 h-28 text-lg" onClick={handleClick}>
                         <span className="w-full flex justify-center items-center">
 
                             <Image
@@ -92,7 +93,7 @@ const TasteForm = () => {
                         </span>
                     </button>
                     <button type="button" id="seafoody" name="signature" value="seafoody"
-                        className="btn w-3/4 lg:w-4/12 h-28 text-lg" onClick={handleClick}>
+                        className="btn w-3/4 lg:w-72 h-28 text-lg" onClick={handleClick}>
                         <span className="w-full flex justify-center items-center">
 
                             <Image
@@ -108,9 +109,9 @@ const TasteForm = () => {
                     </button>
                 </div>
 
-                <div className="flex sm:max-lg:flex-col lg:flex-row items-center sm:max-lg:mb-5 sm:max-lg:gap-y-5 lg:gap-x-3">
+                <div className="flex flex-col lg:flex-row lg:justify-center items-center mb-5 gap-y-5 lg:gap-x-3">
                     <button type="button" id="savory" name="signature" value="savory"
-                        className="btn w-3/4 lg:w-4/12 h-28 text-lg" onClick={handleClick}>
+                        className="btn w-3/4 lg:w-72 h-28 text-lg" onClick={handleClick}>
                         <span className="w-full flex justify-center items-center">
 
                             <Image
@@ -125,7 +126,7 @@ const TasteForm = () => {
                         </span>
                     </button>
                     <button type="button" id="beefy" name="signature" value="beefy"
-                        className="btn w-3/4 lg:w-4/12 h-28 text-lg" onClick={handleClick}>
+                        className="btn w-3/4 lg:w-72 h-28 text-lg" onClick={handleClick}>
                         <span className="w-full flex justify-center items-center">
 
                             <Image

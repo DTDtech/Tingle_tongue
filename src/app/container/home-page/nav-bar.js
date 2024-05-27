@@ -8,7 +8,7 @@ const HomeNavBar = () => {
     const router = useRouter();
 
     return (
-        <div className="navbar flex justify-center w-full lg:w-3/4 bg-primary space-x-5 p-3 rounded-lg">
+        <div className="navbar flex justify-center w-full bg-primary space-x-5 p-3 rounded-lg">
             <div>
                 <button className="btn btn-lg glass btn-square btn-ghost relative" 
                 onClick={() => router.push("/")}>
