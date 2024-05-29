@@ -141,6 +141,7 @@ class LiteYTEmbed extends HTMLElement {
                 events: {
                     'onReady': event => {
                         event.target.playVideo();
+                        event.target.setVolume(30);
                         resolve(player);
                     }
                 }

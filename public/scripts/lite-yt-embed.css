@@ -2,11 +2,12 @@ lite-youtube {
     background-color: #000;
     position: relative;
     display: block;
-    contain: content;
+    /* contain: content; */
     background-position: center center;
     background-size: cover;
     cursor: pointer;
     max-width: 720px;
+    width: 100%;
 }
 
 /* gradient */

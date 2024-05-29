@@ -1,74 +1,76 @@
 'use client'
 
-import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
+import Script from "next/script";
 
 const DishesSection = ({ dishes }) => {
 
-    async function adjustVolume() {
-        let player = await document.querySelector(`lite-youtube[videoid='${dishes[currentIndex].video_id}']`).getYTPlayer();
-        player?.setVolume(20);
-    }
-
-    // useEffect(() => {
-
-    // }, []);
-
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const chevronVariants = {
-        hover: {
-            scale: 1.3,
-            transition: { duration: 0.2 },
-        },
-    };
+    const handleNext = () => {
+        if (currentIndex === dishes.length - 1) {
+            setCurrentIndex(0);
+        }
+        else {
+            setCurrentIndex(currentIndex + 1);
+        }
+        console.log(dishes[currentIndex].video_id)
+    }
+
+    const handlePrevious = () => {
+        if (currentIndex === 0) {
+            setCurrentIndex(dishes.length - 1);
+        }
+        else {
+            setCurrentIndex(currentIndex - 1);
+        }
+        console.log(dishes[currentIndex].video_id)
+    }
 
     return (
-        <>
-            {/* {dishes.map((dish, index) => ( */}
-                <div className="flex flex-row items-center w-full h-full px-8">
-                    <motion.div
-                        variants={chevronVariants}
-                        whileHover="hover"
-                        className="flex justify-start w-1/5">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
-                        className="size-6 text-black" onClick={() => setCurrentIndex(currentIndex - 1)}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                        </svg>
-                    </motion.div>
+        <div className="flex flex-row items-center w-full h-full px-8" >
+            <div className="flex justify-start w-1/5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+                    className="size-6 text-black" onClick={handlePrevious}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+            </div>
 
-                    <motion.div className="w-3/5">
-                        {console.log(dishes[currentIndex].video_id)}
-                        <div>
-                            <div className="card lg:card-side w-full bg-base-100 shadow-xl text-black">
-                                <div>
-                                    <lite-youtube videoid={dishes[currentIndex].video_id} js-api></lite-youtube>
-                                    <button onClick={adjustVolume} className="text-black">Adjust volume</button>
-                                </div>
-                                <div className="card-body">
-                                    <h2 className="card-title">Shoes!</h2>
-                                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                                    <div className="card-actions justify-end">
-                                        <button className="btn btn-primary">Buy Now</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </motion.div>
-
-                    <motion.div
-                        variants={chevronVariants}
-                        whileHover="hover"
-                        className="flex justify-end w-1/5">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
-                        className="size-6 text-black" onClick={() => setCurrentIndex(currentIndex + 1)}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                        </svg>
-                    </motion.div>
+            <div key={currentIndex} className="w-3/5 flex flex-col h-full space-y-5">
+                <div className="flex justify-center w-full h-full">
+                    <lite-youtube videoid={dishes[currentIndex].video_id} js-api></lite-youtube>
+                    {/* <button onClick={adjustVolume} className="">Adjust Volume</button> */}
                 </div>
-            {/* ))} */}
-        </>
+                <div>
+                    <div
+                        key={currentIndex}
+                        className="card w-full bg-base-100 shadow-xl text-black"
+                    >
+                        <div className="card-body">
+                            <div className="flex justify-center">
+                                <h1 className="card-title"> {dishes[currentIndex].name} </h1>
+                            </div>
+                            <h2 className="font-medium text-lg"> Ingredients: </h2>
+                            <ul className="list-disc text-black space-y-5"></ul>
+                            {dishes[currentIndex].ingredients.map((ingredient, index) => (
+                                <li key={index}>{ingredient}</li>
+                            ))}
+                            <ul />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div className="flex justify-end w-1/5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+                    className="size-6 text-black" onClick={handleNext}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            </div>
+            <Script src="/scripts/lite-yt-embed.js" />
+
+        </div>
     )
 }
 

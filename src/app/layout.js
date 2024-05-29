@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
       <head>
-        <Script src="/scripts/lite-yt-embed.js" />
+        {/* <Script src="/scripts/lite-yt-embed.js" /> */}
         <link rel="stylesheet" href="/scripts/lite-yt-embed.css" />
       </head>
       <body className={inter.className}>
